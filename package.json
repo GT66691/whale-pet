@@ -1,0 +1,30 @@
+{
+  "name": "whale-pet",
+  "version": "1.0.0",
+  "description": "小鲸鱼桌宠：常驻桌面的透明 Electron 宠物，实时显示 DeepSeek 余额与今日消耗",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "electron",
+    "desktop-pet",
+    "deepseek",
+    "balance",
+    "windows"
+  ],
+  "author": "GT66691",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^33.4.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GT66691/whale-pet.git"
+  },
+  "homepage": "https://github.com/GT66691/whale-pet",
+  "bugs": {
+    "url": "https://github.com/GT66691/whale-pet/issues"
+  }
+}

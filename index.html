@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>小鲸鱼</title>
+<link rel="stylesheet" href="pet.css">
+</head>
+<body>
+<div id="stage">
+  <div id="panel" class="hide">
+    <div class="ptitle">小鲸鱼设置</div>
+    <label class="prow"><span>大小</span><input id="sizeRange" type="range" min="150" max="420" step="5"><b id="sizeVal">210</b></label>
+    <div class="prow2">
+      <button id="btnRefresh">刷新余额</button>
+      <button id="btnQuit">退出</button>
+    </div>
+  </div>
+  <div id="bubble" class="hide">
+    <div class="row"><span class="k">余额</span><span class="v" id="bal">--</span></div>
+    <div class="row"><span class="k">今日已用</span><span class="v" id="used">--</span></div>
+    <div class="row"><span class="k">时段</span><span class="v" id="peak">--</span></div>
+    <div class="hint">点我摸摸 · 再点看余额 · 右键设置</div>
+  </div>
+  <div id="rua" class="hide">
+    <img id="ruaImg" src="assets/rua.gif" draggable="false" alt="">
+    <div class="rtext" id="ruaText">rua~</div>
+  </div>
+  <img id="whale" src="assets/whale.png" draggable="false" alt="小鲸鱼">
+</div>
+<script src="pet.js"></script>
+</body>
+</html>

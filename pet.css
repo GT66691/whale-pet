@@ -1,0 +1,108 @@
+html, body {
+  margin: 0; padding: 0; width: 100%; height: 100%;
+  background: transparent; overflow: hidden;
+  user-select: none; -webkit-user-select: none;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+#stage {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-end;
+  padding-bottom: 1vmin; box-sizing: border-box;
+}
+#whale {
+  width: 62vmin;
+  max-height: 60vmin;
+  flex: 0 0 auto;
+  min-height: 0;
+  object-fit: contain;
+  cursor: grab;
+  transform-origin: 50% 100%;
+  transition: transform .13s cubic-bezier(.34,1.56,.64,1);
+  filter: drop-shadow(0 1.2vmin 1.6vmin rgba(0,0,0,.35));
+  -webkit-user-drag: none;
+}
+#whale.press {
+  transform: scale(1.03, .94);
+  filter: drop-shadow(0 0.4vmin 1vmin rgba(0,0,0,.5));
+}
+
+/* 抚摸气泡：原版 rua.gif + 一句台词 */
+#rua {
+  background: #ffffff;
+  border: 0.9vmin solid #203170;
+  border-radius: 3.6vmin;
+  padding: 1.4vmin 2vmin 1.2vmin;
+  margin-bottom: 1vmin;
+  display: flex; flex-direction: column; align-items: center;
+  box-shadow: 0 1.6vmin 4vmin rgba(0,0,0,.25);
+  box-sizing: border-box;
+  transform-origin: 50% 100%;
+  transition: opacity .18s ease, transform .22s cubic-bezier(.34,1.56,.64,1);
+}
+#rua img {
+  width: 26vmin; height: 26vmin;
+  border-radius: 2vmin;
+  -webkit-user-drag: none;
+}
+#rua .rtext {
+  margin-top: .8vmin;
+  font-size: 3.2vmin; font-weight: 700; color: #203170;
+}
+#whale.grab { cursor: grabbing; }
+
+#bubble, #panel {
+  background: #ffffff;
+  border: 0.9vmin solid #203170;
+  border-radius: 3.6vmin;
+  padding: 2.2vmin 3vmin 1.6vmin;
+  margin-bottom: 1vmin;
+  color: #203170;
+  box-shadow: 0 1.6vmin 4vmin rgba(0,0,0,.25);
+  position: relative;
+  box-sizing: border-box;
+  max-width: 92vw;
+  transform-origin: 50% 100%;
+  transition: opacity .18s ease, transform .22s cubic-bezier(.34,1.56,.64,1);
+}
+#bubble::after {
+  content: "";
+  position: absolute;
+  left: 50%; bottom: -2.4vmin;
+  width: 3.6vmin; height: 3.6vmin;
+  background: #fff;
+  border-right: 0.9vmin solid #203170;
+  border-bottom: 0.9vmin solid #203170;
+  transform: translateX(-50%) rotate(45deg);
+  border-bottom-right-radius: 0.8vmin;
+}
+/* 隐藏 = 彻底移出布局（否则隐藏的面板/气泡仍占高度，把气泡顶出窗口） */
+.hide { display: none !important; }
+
+/* 出现时的弹入动画（display 切换后仍要有个手感） */
+#bubble:not(.hide), #rua:not(.hide), #panel:not(.hide) {
+  animation: popin .22s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes popin {
+  from { opacity: 0; transform: translateY(2vmin) scale(.86); }
+  to   { opacity: 1; transform: none; }
+}
+.row { display: flex; justify-content: space-between; gap: 3vmin; line-height: 1.55; font-size: 3.6vmin; }
+.k { opacity: .75; }
+.v { font-weight: 700; }
+.v.bad { color: #c0392b; }
+.hint { margin-top: 1vmin; font-size: 2.6vmin; opacity: .55; text-align: center; border-top: 1px dashed rgba(32,49,112,.25); padding-top: 1vmin; }
+
+#panel { width: 80vmin; }
+#stage.panel-open #whale { width: 34vmin; max-height: 34vmin; }
+.ptitle { font-size: 3.4vmin; font-weight: 700; margin-bottom: 1.4vmin; }
+.prow { display: flex; align-items: center; gap: 2vmin; font-size: 3vmin; }
+.prow input[type=range] { flex: 1; accent-color: #203170; }
+.prow b { width: 8vmin; text-align: right; font-size: 3vmin; }
+.prow2 { display: flex; gap: 2vmin; margin-top: 1.6vmin; }
+.prow2 button {
+  flex: 1; font: inherit; font-size: 2.9vmin; padding: 1vmin 0;
+  color: #203170; background: #eef1f8; border: 0.5vmin solid #203170;
+  border-radius: 2vmin; cursor: pointer;
+}
+.prow2 button:hover { background: #dde4f4; }
